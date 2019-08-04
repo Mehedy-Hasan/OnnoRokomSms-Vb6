@@ -75,9 +75,9 @@ Public Function SMS()
     op = "NumberSms" 'OneToOne and OneToMany
     smsType = "TEXT"
     
-    URL = "http://api2.onnorokomsms.com/HttpSendSms.ashx?"
+    URL = "https://api2.onnorokomsms.com/HttpSendSms.ashx?"
     
-    Set objXML = CreateObject("Microsoft.XMLHTTP")
+    Set objXML = CreateObject("MSXML2.serverXMLHTTP")
     objXML.Open "POST", URL, False
     objXML.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
     
