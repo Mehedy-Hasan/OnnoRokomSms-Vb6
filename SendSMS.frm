@@ -118,3 +118,27 @@ Function URLEncode(ByVal Text As String) As String
     Next
 
 End Function
+
+Function GetBalance()
+    
+    Dim apiKey As String
+    Dim op As String
+    Dim URL As String
+    
+    apiKey = "" 'API KEY
+    
+    op = "GetCurrentBalance"
+    
+    URL = "https://api2.onnorokomsms.com/HttpSendSms.ashx?"
+    
+    Set objXML = CreateObject("MSXML2.serverXMLHTTP")
+    objXML.Open "POST", URL, False
+    objXML.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
+    
+    objXML.send "op=" + op + "&apiKey=" + apiKey
+    
+    If Len(objXML.responseText) > 0 Then
+            MsgBox objXML.responseText
+    End If
+    
+End Function
